@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+* {
+  @apply scroll-smooth;
+}
+
+.font-secondary {
+  font-family: "Rancho", sans-serif;
+}
