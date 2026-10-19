@@ -38,8 +38,8 @@ reference it with `imageUrl("name.webp")`.
 ## Develop
 
 ```bash
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 ## Deploy
