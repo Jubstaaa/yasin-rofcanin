@@ -1,8 +1,7 @@
 # yasinrofcanin.com
 
-Personal homepage for Yasin Rofcanin. A single-page Next.js app that ships as a
-**static export** — every route prerenders, there are no API routes and no
-server actions — so it is served as plain files by the shared Caddy on the
+Personal homepage for Yasin Rofcanin. A single-page Astro site that ships as a
+**static build** — there is no server runtime — so it is served as plain files by the shared Caddy on the
 droplet rather than by a Node process.
 
 Not to be confused with `yasin-rofcanin-site`, the separate Payload-backed beta
@@ -25,11 +24,9 @@ DigitalOcean Space and are served from its CDN:
 https://yasinrofcanin.fra1.cdn.digitaloceanspaces.com/images/<name>.webp
 ```
 
-A static export has no `/_next/image` optimizer, so the sources were converted
-to webp up front (583KB -> 429KB, matching what Vercel's optimizer used to
-serve) and `next.config.mjs` sets `images.unoptimized`. Every reference goes
-through `imageUrl()` in `app/lib/image-url.js`, so the CDN host appears exactly
-once.
+The sources were converted to webp up front (583KB -> 429KB), so the site serves
+them untouched with plain `<img>` tags. Every reference goes through `imageUrl()`
+in `src/lib/image-url.ts`, so the CDN host appears exactly once.
 
 To add or replace an image: convert it to webp, upload it under `images/` in
 that Space with `Cache-Control: public, max-age=31536000, immutable`, and
@@ -39,12 +36,15 @@ reference it with `imageUrl("name.webp")`.
 
 ```bash
 bun install
-bun run dev
+bun run dev        # astro dev
+bun run build      # static site in dist/
+bun run typecheck  # astro check
+bun run lint && bun run format:check && bun run test
 ```
 
 ## Deploy
 
-Pushing to `main` builds the export and rsyncs `out/` to
+Pushing to `main` builds the site and uploads `dist/` to
 `/opt/proxy/sites/yasinrofcanin` on the droplet. Caddy serves it from disk, so
 there is no container and nothing to restart — the new files are live the
 moment rsync finishes. See `.github/workflows/deploy.yml`.
