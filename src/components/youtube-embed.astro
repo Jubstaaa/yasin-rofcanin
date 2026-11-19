@@ -1,0 +1,10 @@
+---
+interface Props {
+    id: string
+}
+
+const { id } = Astro.props
+const src = `https://www.youtube-nocookie.com/embed/${id}?feature=oembed&start&end&wmode=opaque&loop=0&controls=1&mute=0&rel=0&modestbranding=0`
+---
+
+<iframe class="aspect-video w-full" title="youtube Video Player" {src} loading="lazy"></iframe>

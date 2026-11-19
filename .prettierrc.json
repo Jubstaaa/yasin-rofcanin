@@ -1,0 +1,25 @@
+{
+    "arrowParens": "avoid",
+    "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "printWidth": 100,
+    "overrides": [
+        {
+            "files": "*.astro",
+            "options": {
+                "parser": "astro"
+            }
+        },
+        {
+            "files": ".github/dependabot.yml",
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 120,
+                "singleQuote": false
+            }
+        }
+    ],
+    "tailwindStylesheet": "./src/styles/global.css"
+}

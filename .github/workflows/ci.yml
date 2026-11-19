@@ -26,16 +26,20 @@ jobs:
               with:
                   bun-version-file: package.json
             - run: bun install --frozen-lockfile
+            - run: bun run format:check
             - run: bun run lint
-            - run: bun run audit
-            # `output: "export"` writes plain files to out/: no server to run.
+            - run: bun run typecheck
+            - run: bun run test
+            # Astro writes plain files to dist/: no server to run.
             - run: bun run build
+            - run: bun run audit
             # If the CDN base ever falls out of the build, every image 404s while
             # the build still looks perfectly healthy.
             - name: Sanity-check the export
               run: |
-                  test -s out/index.html
-                  test "$(find out -type f | wc -l)" -ge 10
-                  grep -q 'yasinrofcanin.fra1.cdn.digitaloceanspaces.com' out/index.html
+                  test -s dist/index.html
+                  # Self-hosted fonts missing from the build fall back silently.
+                  test -n "$(find dist/_astro/fonts -name '*.woff2')"
+                  grep -q 'yasinrofcanin.fra1.cdn.digitaloceanspaces.com' dist/index.html
             - name: actionlint
               run: docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint:1.7.12@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667 -color

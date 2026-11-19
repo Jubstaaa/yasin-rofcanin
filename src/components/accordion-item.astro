@@ -1,0 +1,43 @@
+---
+interface Props {
+    icon: string
+    // Items sharing a name behave as one group: opening one closes the others.
+    name: string
+    title: string
+}
+
+import { Icon } from 'astro-icon/components'
+
+const { icon, name, title } = Astro.props
+---
+
+<details name={name} class="flex flex-col border-b-2 border-[#d4d4d4] px-5 py-4 leading-none">
+    <summary class="flex min-h-[18.5px] cursor-pointer list-none items-center gap-4 text-start font-semibold [&::-webkit-details-marker]:hidden">
+        <Icon name={icon} class="size-3.5 shrink-0 text-black" aria-hidden="true" />
+        {title}
+    </summary>
+    <!-- The extra wrapper keeps typography's first-child margin reset off the content. -->
+    <div class="prose-sm">
+        <div>
+            <slot />
+        </div>
+    </div>
+</details>
+
+<style>
+    /* Animates the height of the native disclosure; browsers without
+       interpolate-size simply open it instantly. */
+    details {
+        interpolate-size: allow-keywords;
+    }
+    details::details-content {
+        block-size: 0;
+        overflow: clip;
+        transition:
+            block-size 250ms,
+            content-visibility 250ms allow-discrete;
+    }
+    details[open]::details-content {
+        block-size: auto;
+    }
+</style>
