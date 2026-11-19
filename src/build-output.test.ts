@@ -57,3 +57,13 @@ describe('built homepage', () => {
         for (const target of targets) expect(ids).toContain(target.slice(1))
     })
 })
+
+describe('content security policy', () => {
+    test('ships a CSP that pins scripts and frames', async () => {
+        const [policy] = await collect('meta[http-equiv="content-security-policy"]', 'content')
+        expect(policy).toContain("default-src 'self'")
+        expect(policy).toContain('frame-src https://www.youtube-nocookie.com')
+        expect(policy).toMatch(/script-src [^;]*'sha256-/)
+        expect(policy).not.toContain("'unsafe-inline'")
+    })
+})
