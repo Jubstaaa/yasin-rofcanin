@@ -1,0 +1,138 @@
+---
+import { Icon } from 'astro-icon/components'
+import YoutubeEmbed from '@/components/youtube-embed.astro'
+import { imageUrl } from '@/lib/image-url'
+
+const socials = [
+    {
+        icon: 'fa-brands:linkedin',
+        label: 'LinkedIn',
+        url: 'https://uk.linkedin.com/in/yasin-rofcanin-19a05956',
+        class: 'bg-[#0077b5]',
+    },
+    {
+        icon: 'fa-solid:envelope',
+        label: 'Email',
+        url: 'mailto:Y.Rofcanin@bath.ac.uk',
+        class: 'bg-[#23a455]',
+    },
+    {
+        icon: 'fa-solid:university',
+        label: 'University of Bath',
+        url: 'mailto:Y.Rofcanin@bath.ac.uk',
+        class: 'bg-[#818a91]',
+    },
+]
+---
+
+<section class="pt-32 pb-6" id="visitings">
+    <div class="container mx-auto flex flex-col gap-14 px-5 lg:px-20">
+        <h2 class="text-center text-3xl font-semibold">Visitings Positions and Professorships</h2>
+        <div class="prose-sm w-full">
+            <p>
+                <a
+                    class="hover:text-[#23a455] transition-all"
+                    target="_blank"
+                    href="https://www.iese.edu/faculty-research/research-centers/icwf-international-center-work-family/"
+                >
+                    <strong>
+                        <em>IESE Business School</em>
+                    </strong>{' '}
+                </a>
+                (Barcelona, Spain): Visiting Professor and Member of International Centre of
+                Work-Family.
+            </p>
+            <p>
+                <a
+                    class="hover:text-[#23a455] transition-all"
+                    target="_blank"
+                    href="https://bschool.nus.edu.sg/"
+                >
+                    <strong>
+                        <em>NUS Business School</em>
+                    </strong>{' '}
+                </a>
+                (Singapore): Visiting Researcher
+            </p>
+            <p>
+                <a
+                    class="hover:text-[#23a455] transition-all"
+                    target="_blank"
+                    href="https://mgmt.bogazici.edu.tr/"
+                >
+                    <strong>
+                        <em>Bogazici University</em>
+                    </strong>{' '}
+                </a>
+                (Istanbul, Turkey): Adjunct Professor at the Department of Management.
+            </p>
+        </div>
+        <hr class="container mx-auto border-black" id="media" />
+        <h2 class="text-center text-3xl font-semibold">Media</h2>
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+            <div class="flex flex-col gap-5">
+                <YoutubeEmbed id="bun72cIXHd0" />
+                <p>
+                    Here, my talk focuses on how companies and organisations can implement
+                    idiosyncratic deals in a fair and effective way. From{' '}
+                    <a
+                        class="hover:text-[#23a455] transition-all"
+                        target="_blank"
+                        href="https://researchportal.bath.ac.uk/en/publications/co-worker-reactions-to-i-deals-through-the-lens-of-social-compari"
+                    >
+                        <em>
+                            <strong>our&nbsp;published paper</strong>
+                        </em>
+                    </a>{' '}
+                    at Human Relations.
+                </p>
+            </div>
+            <div class="flex flex-col gap-5">
+                <YoutubeEmbed id="W3GoTvGvVMM" />
+                <p>New ways of working and flexibility.</p>
+            </div>
+            <div class="flex flex-col gap-5">
+                <YoutubeEmbed id="C-aPws4MIoc" />
+                <p>Women and leadership talk. A key take away from my talk.</p>
+            </div>
+            <div class="flex flex-col gap-5">
+                <a
+                    href="https://x.com/UniofBath/status/1244618911636742145"
+                    target="_blank"
+                    class="aspect-video w-full"
+                >
+                    <img
+                        class="h-full w-full border border-black object-contain"
+                        src={imageUrl('blog-3.webp')}
+                        alt="Short talk from the University of Bath on working from home"
+                        width="600"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </a>
+                <p>A short talk on how to work from home and manage work-family under Covid-19.</p>
+            </div>
+        </div>
+        <hr class="container mx-auto border-black" id="contact-me" />
+        <h2 class="text-center text-3xl font-semibold">Contact Me</h2>
+        <div class="flex justify-center gap-5">
+            {socials.map(item => (
+                <a
+                    target="_blank"
+                    href={item.url}
+                    aria-label={item.label}
+                    class:list={[
+                        'flex size-20 items-center justify-center rounded-full p-7 transition-all hover:scale-105 hover:opacity-90 lg:size-28',
+                        item.class,
+                    ]}
+                >
+                    <Icon name={item.icon} class="size-full text-white" aria-hidden="true" />
+                </a>
+            ))}
+        </div>
+        <div class="flex justify-center gap-5">
+            <p>Copyright 2025 - Yasin Rofcanin</p>
+        </div>
+    </div>
+</section>

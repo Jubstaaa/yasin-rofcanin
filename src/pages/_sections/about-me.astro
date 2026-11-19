@@ -1,0 +1,36 @@
+---
+import Slider from '@/components/slider.astro'
+import { imageUrl } from '@/lib/image-url'
+---
+
+<section class="px-5 py-6 lg:px-0" id="about-me">
+    <div class="container mx-auto flex flex-col gap-6">
+        <hr class="border-black" />
+        <h2 class="text-center text-3xl font-semibold">About Me</h2>
+        <div class="flex flex-col justify-between gap-5 lg:flex-row">
+            <Slider
+                images={[
+                    imageUrl('slide-0.webp'),
+                    imageUrl('slide-1.webp'),
+                    imageUrl('slide-2.webp'),
+                ]}
+            />
+            <div class="flex w-full items-center justify-center text-justify">
+                <p class="leading-loose">
+                    I am a Professor of Organisational Psychology and Human Resource Management at
+                    the University of Bath, School of Management. Born and educated in Istanbul
+                    (Bogazici University), I completed my Ph.D. study at Warwick Business School,
+                    University of Warwick. Over the last decade, I explored how employees feel
+                    motivated and productive at work. In particular, my research and teaching focus
+                    on how employees obtain personalized human resource practices and engage in
+                    proactive job crafting to enhance their well-being. Placing employees in a
+                    position of self-starters and change-initiator, my research explores how new
+                    ways of working impact on employee engagement and productivity. My ideas have
+                    reached a wide range of audience through my peer-reviewed publications, book and
+                    articles targeted at managers.
+                </p>
+            </div>
+        </div>
+        <hr class="border-black" />
+    </div>
+</section>

@@ -1,0 +1,55 @@
+---
+import Slider from '@/components/slider.astro'
+import { imageUrl } from '@/lib/image-url'
+---
+
+<section class="py-32" id="future-of-work">
+    <div class="container mx-auto flex flex-col gap-6 px-5 lg:px-20">
+        <h2 class="text-center text-3xl font-semibold">Future of Work</h2>
+        <div class="flex flex-col justify-between gap-5 lg:flex-row">
+            <div class="prose-sm w-full">
+                <p>
+                    <strong>Future of Work Research Centre Leadership </strong>
+                </p>
+                <p>
+                    <strong>&nbsp;</strong>I am a Co-Director of the{' '}
+                    <a
+                        class="hover:text-[#23a455] transition-all"
+                        target="_blank"
+                        href="https://www.bath.ac.uk/research-centres/future-of-work-fow-research-centre/"
+                    >
+                        <em>
+                            <strong>Future of Work</strong>
+                        </em>
+                    </a>{' '}
+                    Research at University of Bath, School of Management.
+                </p>
+                <ul>
+                    <li>
+                        We organise workshops on improving the quality of research output at the
+                        School level (Sessions of Deep Reading, Writing Retreats and Publishing in
+                        the USA Journals) and developing sessions to the career development of
+                        postgraduate students and early career researchers (Sessions of Meet the
+                        Editors, Afternoon Tea Talks).
+                    </li>
+                    <li>
+                        Furthermore, we carry out activities&nbsp;includingseries of
+                        mini-conferences that key external stakeholders (companies and
+                        practitioners). Please get in touch with us if you are interested.
+                    </li>
+                    <li>Finally, our research centre &nbsp;regularly hosts Visiting Researcher.</li>
+                </ul>
+                <a
+                    class="text-black hover:text-[#23a455] transition-all italic font-semibold"
+                    target="_blank"
+                    href="https://www.bath.ac.uk/research-centres/future-of-work-fow-research-centre/"
+                >
+                    &gt;&gt; Click to see our website &lt;&lt;
+                </a>
+            </div>
+            <Slider
+                images={[imageUrl('future-our-work-0.webp'), imageUrl('future-our-work-1.webp')]}
+            />
+        </div>
+    </div>
+</section>

@@ -1,0 +1,76 @@
+---
+import { imageUrl } from '@/lib/image-url'
+const blogs = [
+    {
+        title: 'Balanced lives help us all',
+        description:
+            'The more family-friendly employers are, the greater the benefits for them, their staff and society as a whole.',
+        publishers: 'Mireia Las Heras and Yasin Rofcanin',
+        site: 'Financial Times',
+        date: 'November 2019',
+        image: imageUrl('blog-1.webp'),
+        url: 'https://www.ft.com/content/2c50fadc-01f0-11ea-be59-e49b2a136b8d',
+    },
+    {
+        title: 'Why business should do more for employees looking after elderly relatives',
+        description:
+            'The word’s population of elderly people – aged 70 or over – is expected to increase sharply in the coming decades. Many of these people will need some kind of care – and much of that care will come from family members who already have time-consuming jobs.',
+        publishers: 'Yasin Rofcanin',
+        site: 'The Conversation',
+        date: 'November 2018',
+        image: imageUrl('blog-2.webp'),
+        url: 'https://theconversation.com/why-business-should-do-more-for-employees-looking-after-elderly-relatives-98275',
+    },
+    {
+        title: 'Empathy in organisations: How considerate managers improve employee performance',
+        description:
+            'Dr Yasin Rofcanin is exploring the links between employee wellbeing and organisational productivity.',
+        publishers: 'Yasin Rofcanin',
+        site: 'University of Bath',
+        date: undefined,
+        image: imageUrl('blog-3.webp'),
+        url: 'https://www.bath.ac.uk/case-studies/empathy-in-organisations-how-considerate-managers-improve-employee-performance/',
+    },
+]
+---
+
+<section class="py-6" id="blog">
+    <div class="container mx-auto flex flex-col gap-10 px-5 lg:px-20">
+        <h2 class="text-center text-3xl font-semibold">Blog</h2>
+        {blogs.map(item => (
+            <div class="flex flex-col gap-10">
+                <div class="flex flex-col items-center justify-between gap-6 leading-loose lg:flex-row lg:items-start">
+                    <div class="flex w-full flex-col gap-3">
+                        <h3 class="text-2xl font-semibold text-[#333333] transition-all hover:text-[#23a455]">
+                            <a href={item.url} target="_blank">
+                                {item.title}
+                            </a>
+                        </h3>
+                        <p>{item.description}</p>
+                        <p class="font-semibold">
+                            {item.publishers} - {item.site} {item.date && ` - ${item.date}`}
+                        </p>
+                    </div>
+                    <a
+                        href={item.url}
+                        target="_blank"
+                        class="flex w-60 items-center justify-center"
+                        aria-hidden="true"
+                        tabindex="-1"
+                    >
+                        <img
+                            class="h-auto w-full object-contain"
+                            src={item.image}
+                            alt={item.title}
+                            width="500"
+                            height="500"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </a>
+                </div>
+                <hr class="border-black" />
+            </div>
+        ))}
+    </div>
+</section>
