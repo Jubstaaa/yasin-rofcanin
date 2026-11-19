@@ -1,0 +1,48 @@
+---
+interface Props {
+    images: string[]
+}
+
+const { images } = Astro.props
+---
+
+<a
+    target="_blank"
+    rel="noopener"
+    href="https://www.linkedin.com/in/yasin-rofcanin-19a05956"
+    class="relative aspect-square w-full lg:w-2/5"
+>
+    <div class="swiper h-full w-full" data-slider>
+        <div class="swiper-wrapper">
+            {images.map((src, index) => (
+                <div class="swiper-slide">
+                    <img
+                        class="h-full w-full border border-black object-cover"
+                        src={src}
+                        width="500"
+                        height="500"
+                        alt={`Slide ${index + 1} of ${images.length}`}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+            ))}
+        </div>
+    </div>
+</a>
+
+<script>
+    import 'swiper/css'
+
+    import Swiper from 'swiper'
+    import { Autoplay } from 'swiper/modules'
+
+    for (const element of document.querySelectorAll<HTMLElement>('[data-slider]')) {
+        new Swiper(element, {
+            autoplay: true,
+            loop: true,
+            modules: [Autoplay],
+            slidesPerView: 1,
+        })
+    }
+</script>
