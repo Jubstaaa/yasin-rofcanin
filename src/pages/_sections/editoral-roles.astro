@@ -1,0 +1,60 @@
+---
+import { imageUrl } from '@/lib/image-url'
+---
+
+<section class="py-32" id="editoral-roles">
+    <div class="container mx-auto flex flex-col gap-10 px-5 lg:px-20">
+        <h2 class="text-center text-3xl font-semibold">Editoral Roles</h2>
+        <div class="prose-sm w-full">
+            <p>
+                <strong>Associate Editorship</strong>: &nbsp;I am an Associate Editor of{' '}
+                <em>Human Relations</em> which is considered a flagship journal of the{' '}
+                <em>Tavistock Institute</em> and has been published for over 70 years.
+            </p>
+            <p>
+                My responsibilities as Associate Editor cover two areas: Firstly, I am responsible
+                for handling the submissions that fall in the areas of flexible work practices,
+                human resource management, proactive work behaviours and organisational psychology.
+                Secondly, I raise media impact by encouraging and supporting authors to a) publish
+                blog posts of their articles and b) develop short videos of their articles all of
+                which are managed in the social media channels of the journal. The focus of my
+                leadership in this process is to develop and manage social media channels, namely
+                Human Relations Youtube channel, Facebook, Twitter and Linkedin on behalf of Human
+                Relations.
+            </p>
+            <p>
+                In addition to my on-going Associate Editorship role, I am an elected member of and
+                sit on the Editorial Boards of three ABS 4 journals. These are:
+            </p>
+        </div>
+        <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            <div class="prose-sm">
+                <p>
+                    <strong>
+                        <u>Editorial Membership:</u>
+                    </strong>
+                </p>
+                <ul>
+                    <li>British Journal of Management (January 2019 – Present)</li>
+                    <li>Journal of Occupational Health Psychology (January 2020 – Present)</li>
+                    <li>Journal of Organizational Behavior (Invited in February 2020 – Present)</li>
+                </ul>
+            </div>
+            <a
+                href="https://www.humanrelationsjournal.org/about/editorial-team/"
+                target="_blank"
+                class="flex w-72 items-center justify-center"
+            >
+                <img
+                    class="h-auto w-full border border-black object-contain transition-all hover:scale-110"
+                    src={imageUrl('human-relations.webp')}
+                    alt="Human Relations"
+                    width="500"
+                    height="500"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </a>
+        </div>
+    </div>
+</section>

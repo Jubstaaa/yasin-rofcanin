@@ -1,0 +1,36 @@
+---
+import Accordion from '@/components/accordion.astro'
+import AccordionItem from '@/components/accordion-item.astro'
+---
+
+<section class="bg-[#f3f3f3] py-32" id="teachings">
+    <div class="container mx-auto flex flex-col gap-6">
+        <h2 class="text-center text-3xl font-semibold">Teachings</h2>
+        <p>
+            &lt;&lt;My teaching experience covers a) developing and b) delivering modules at MBA,
+            Master’s and Ungraduated levels. &gt;&gt;
+        </p>
+        <Accordion>
+            <AccordionItem
+                name="teachings"
+                icon="fa:pencil"
+                title="Analytics and Big Data Use in Human Resources Management"
+            >
+                <p>Master’s and MBA levels.</p>
+            </AccordionItem>
+            <AccordionItem
+                name="teachings"
+                icon="fa:pencil"
+                title="Strategic and People Management"
+            >
+                <p>MBA level.</p>
+            </AccordionItem>
+            <AccordionItem name="teachings" icon="fa:pencil" title="Organizational Behaviour">
+                <p>Undergraduate level.</p>
+            </AccordionItem>
+            <AccordionItem name="teachings" icon="fa:pencil" title="Business & Management">
+                <p>Undergraduate level.</p>
+            </AccordionItem>
+        </Accordion>
+    </div>
+</section>
