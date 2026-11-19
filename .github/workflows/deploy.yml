@@ -43,6 +43,6 @@ jobs:
             # goes back to the previous one if it does not answer.
             - uses: Jubstaaa/deploy-actions/static@49eae2ffd4e60ca7b69323f622d7f06e97bbe1b2 # v1.2.0
               with:
-                  source-dir: out
+                  source-dir: dist
                   site: yasinrofcanin
                   health-url: https://yasinrofcanin.com/

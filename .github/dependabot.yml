@@ -9,15 +9,16 @@ updates:
     cooldown:
       default-days: 7
     groups:
-      next:
-        patterns: [next, "@next/*", eslint-config-next]
-      # react and react-dom refuse to run at different versions.
-      react:
-        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
+      astro:
+        patterns: [astro, "@astrojs/*", astro-icon]
       tailwind:
         patterns: ["tailwindcss", "@tailwindcss/*"]
       eslint:
-        patterns: ["eslint", "@eslint/*"]
+        patterns: ["eslint", "@eslint/*", typescript-eslint, "eslint-plugin-*", eslint-config-prettier]
+      prettier:
+        patterns: [prettier, "prettier-plugin-*"]
+      iconify:
+        patterns: ["@iconify-json/*"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
