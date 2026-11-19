@@ -2,6 +2,8 @@ import tailwindcss from '@tailwindcss/vite'
 import icon from 'astro-icon'
 import { defineConfig, fontProviders } from 'astro/config'
 
+import { CDN_BASE_URL } from './src/lib/image-url'
+
 export default defineConfig({
     integrations: [
         icon({
@@ -31,5 +33,27 @@ export default defineConfig({
             styles: ['normal'],
         },
     ],
+    // Astro hashes its own scripts and styles into a CSP meta tag. Headers a
+    // meta tag cannot carry (HSTS, frame-ancestors, nosniff) belong to the proxy.
+    security: {
+        csp: {
+            directives: [
+                "default-src 'self'",
+                `img-src 'self' data: ${CDN_BASE_URL}`,
+                "font-src 'self'",
+                // Cloudflare Web Analytics reports here; its beacon is allowed below.
+                "connect-src 'self' https://cloudflareinsights.com",
+                'frame-src https://www.youtube-nocookie.com',
+                "object-src 'none'",
+                "base-uri 'self'",
+                "form-action 'self'",
+                'upgrade-insecure-requests',
+            ],
+            scriptDirective: {
+                // 'self' covers Cloudflare's same-origin email-decode script.
+                resources: ["'self'", 'https://static.cloudflareinsights.com'],
+            },
+        },
+    },
     vite: { plugins: [tailwindcss()] },
 })
