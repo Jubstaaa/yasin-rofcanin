@@ -38,7 +38,8 @@ jobs:
             - name: Sanity-check the export
               run: |
                   test -s dist/index.html
-                  test "$(find dist -type f | wc -l)" -ge 10
+                  # Self-hosted fonts missing from the build fall back silently.
+                  test -n "$(find dist/_astro/fonts -name '*.woff2')"
                   grep -q 'yasinrofcanin.fra1.cdn.digitaloceanspaces.com' dist/index.html
             - name: actionlint
               run: docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint:1.7.12@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667 -color
