@@ -1,0 +1,50 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "github>Jubstaaa/configs",
+        "github>Jubstaaa/configs:cooldown"
+    ],
+    "packageRules": [
+        {
+            "matchPackageNames": [
+                "astro",
+                "@astrojs/**",
+                "astro-icon"
+            ],
+            "groupName": "astro"
+        },
+        {
+            "matchPackageNames": [
+                "eslint",
+                "@eslint/**",
+                "typescript-eslint",
+                "eslint-plugin-*",
+                "eslint-config-prettier"
+            ],
+            "groupName": "eslint"
+        },
+        {
+            "matchPackageNames": [
+                "prettier",
+                "prettier-plugin-*"
+            ],
+            "groupName": "prettier"
+        },
+        {
+            "matchPackageNames": [
+                "@iconify-json/**"
+            ],
+            "groupName": "iconify"
+        },
+        {
+            "matchPackageNames": [
+                "typescript",
+                "@typescript/typescript6"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "enabled": false
+        }
+    ]
+}
