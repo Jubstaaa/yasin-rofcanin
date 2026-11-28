@@ -15,16 +15,6 @@
         },
         {
             "matchPackageNames": [
-                "eslint",
-                "@eslint/**",
-                "typescript-eslint",
-                "eslint-plugin-*",
-                "eslint-config-prettier"
-            ],
-            "groupName": "eslint"
-        },
-        {
-            "matchPackageNames": [
                 "prettier",
                 "prettier-plugin-*"
             ],
@@ -35,16 +25,6 @@
                 "@iconify-json/**"
             ],
             "groupName": "iconify"
-        },
-        {
-            "matchPackageNames": [
-                "typescript",
-                "@typescript/typescript6"
-            ],
-            "matchUpdateTypes": [
-                "major"
-            ],
-            "enabled": false
         }
     ]
 }
