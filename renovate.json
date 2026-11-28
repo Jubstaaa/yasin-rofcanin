@@ -1,29 +1,17 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "github>Jubstaaa/configs",
-        "github>Jubstaaa/configs:cooldown"
-    ],
+    "extends": ["github>Jubstaaa/configs", "github>Jubstaaa/configs:cooldown"],
     "packageRules": [
         {
-            "matchPackageNames": [
-                "astro",
-                "@astrojs/**",
-                "astro-icon"
-            ],
+            "matchPackageNames": ["astro", "@astrojs/**", "astro-icon"],
             "groupName": "astro"
         },
         {
-            "matchPackageNames": [
-                "prettier",
-                "prettier-plugin-*"
-            ],
+            "matchPackageNames": ["prettier", "prettier-plugin-*"],
             "groupName": "prettier"
         },
         {
-            "matchPackageNames": [
-                "@iconify-json/**"
-            ],
+            "matchPackageNames": ["@iconify-json/**"],
             "groupName": "iconify"
         }
     ]
